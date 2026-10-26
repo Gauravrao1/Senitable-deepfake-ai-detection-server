@@ -13,6 +13,10 @@ class Settings:
         for origin in os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
         if origin.strip()
     ]
+    ALLOWED_ORIGIN_REGEX: str = os.getenv(
+        "ALLOWED_ORIGIN_REGEX",
+        r"https://[a-z0-9-]+(?:-[a-z0-9]+)?\.vercel\.app",
+    )
     MAX_FILE_SIZE: int = 50 * 1024 * 1024  # 50MB
     UPLOAD_DIR: str = os.getenv(
         "UPLOAD_DIR",
